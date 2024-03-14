@@ -2,7 +2,7 @@ import { LuDollarSign } from "react-icons/lu";
 import { GoBook } from "react-icons/go";
 import PropTypes from 'prop-types';
 
-const Course = ({ course }) => {
+const Course = ({ course,handleCarts }) => {
     // console.log(course)
     const {name,description,photo,price,credit} = course
     return (
@@ -22,7 +22,7 @@ const Course = ({ course }) => {
 
                     </div>
                     <div className="card-actions w-full">
-                        <button className="btn btn-primary w-full">Select</button>
+                        <button onClick={()=>handleCarts(course)} className="btn btn-primary w-full">Select</button>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,8 @@ const Course = ({ course }) => {
 };
 
 Course.propTypes = {
-    course: PropTypes.object
+    course: PropTypes.object,
+    handleCarts :PropTypes.func
 }
 export default Course;
 
